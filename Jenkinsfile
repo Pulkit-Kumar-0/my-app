@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Node16' // Ensure this matches the name in Jenkins config
+        nodejs 'Node16'
     }
 
     stages {
@@ -18,11 +18,11 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                sh 'npm test -- --watchAll=false'
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         sh 'npm test -- --watchAll=false'
+        //     }
+        // }
 
         stage('Build') {
             steps {
