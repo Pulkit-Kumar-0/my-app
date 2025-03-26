@@ -1,0 +1,24 @@
+.page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.policy-content {
+  text-align: left;
+}
+
+.policy-content h3 {
+  margin-top: 1.5rem;
+}
+
+.policy-content ul {
+  margin-left: 2rem;
+}
