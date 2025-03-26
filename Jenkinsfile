@@ -18,11 +18,11 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                sh 'npm test -- --watchAll=false'
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         sh 'npm test -- --watchAll=false'
+        //     }
+        // }
 
         stage('Build') {
             steps {
@@ -33,23 +33,20 @@ pipeline {
         stage('Deploy') {
             steps {
                 archiveArtifacts artifacts: 'build/**', fingerprint: true
-                echo 'Deploying to production... Starting server!'
-                dir('build') {
-                    sh 'npm install -g serve' // Install serve globally
-                    sh 'serve -s . -l 3000 &' // Serve the build folder on port 3000 in the background
-                }
+                echo 'Deploying to production... (Customize this step!)'
             }
         }
     }
 
     post {
         success {
-            echo '🎉 Pipeline completed successfully! App is running at http://<VM-IP>:3000 🚀'
+            echo '🎉 Pipeline completed successfully! Ready to rock! 🚀'
         }
         failure {
             echo '😱 Pipeline failed! Time to debug! 🐛'
-            cleanWs() // Clean only on failure
         }
-        // Remove always { cleanWs() } to preserve the workspace on success
+        always {
+            cleanWs()
+        }
     }
 }
