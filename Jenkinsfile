@@ -3,7 +3,7 @@ pipeline {
 
     // Define tools (optional: specify Node.js version)
     tools {
-        nodejs 'Node16' // Assumes you have a Node.js installation named 'Node16' in Jenkins global config
+        NodeJs 'Node16' // Assumes you have a Node.js installation named 'Node16' in Jenkins global config
     }
 
     stages {
