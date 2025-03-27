@@ -10,6 +10,7 @@ function Home() {
         alt="Welcome"
         className="page-image"
       />
+      <p>lorem dbfhjkdsbcc mnw dbkdsnms c</p>
       <p>This is the home page of our awesome application!</p>
     </div>
   );
