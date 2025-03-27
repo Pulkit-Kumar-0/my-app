@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Node16'
+        nodejs 'Node16' // Matches your v16.20.6
     }
 
     stages {
@@ -32,18 +32,21 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                archiveArtifacts artifacts: 'build/**', fingerprint: true
-                echo 'Deploying to production... (Customize this step!)'
+                // Copy build folder to Nginx directory
+                sh 'sudo rm -rf /var/www/html/build/*' // Clear old files
+                sh 'sudo cp -r build/* /var/www/html/build/'
+                echo 'Deployed to /var/www/html/build. Nginx will serve the updated app.'
             }
         }
     }
 
     post {
         success {
-            echo '🎉 Pipeline completed successfully! Ready to rock! 🚀'
+            echo '🎉 Pipeline completed successfully! App is live at http://<VM-IP>/ 🚀'
         }
         failure {
             echo '😱 Pipeline failed! Time to debug! 🐛'
+            cleanWs()
         }
     }
 }
