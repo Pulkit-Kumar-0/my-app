@@ -46,7 +46,6 @@ pipeline {
         }
         failure {
             echo '😱 Pipeline failed! Time to debug! 🐛'
-            cleanWs()
         }
     }
 }
