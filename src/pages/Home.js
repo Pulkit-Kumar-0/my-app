@@ -10,7 +10,7 @@ function Home() {
         alt="Welcome"
         className="page-image"
       />
-      <p>This is just the demo testing for the home page GOOD WORK/p>
+      <p>This is just the demo testing for the home page GOOD WORK</p>
       <p>This is the home page of our awesome application!</p>
     </div>
   );
